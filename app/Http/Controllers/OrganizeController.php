@@ -98,7 +98,7 @@ class OrganizeController extends Controller
     public function show($id)
     { 
         
-        if($team = Organize::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
+        if($organize = Organize::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
 
 
 

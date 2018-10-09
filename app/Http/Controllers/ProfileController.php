@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\User;
 use Auth;
-
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
 
+    public function __construct(){
         return $this->middleware('auth:api');
-        
     }
+  
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +38,7 @@ class ProfileController extends Controller
              'about' => 'required',
              'wicketkeeper' => 'required',
              'allrounder' => 'required',
+             
       ]);
       if (Profile::where('user_id', Auth::user()->id)->exists()) {
         return response()->json(['Rejected' => Auth::user()->fname." you already have a profile"], 200);
@@ -56,7 +56,7 @@ class ProfileController extends Controller
       $profile->allrounder = $request->input('allrounder');
       $profile->user_id = Auth::user()->id;
       $profile->save();
-      $success = Auth::user()->fname . "profile created Successfully";
+      $success = Auth::user()->fname . " profile created Successfully";
        return response()->json(['Sucess' => $success], 200);
 
     }
@@ -69,12 +69,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-    
-        
 
-    }
 
     /**
      * Display the specified resource.
