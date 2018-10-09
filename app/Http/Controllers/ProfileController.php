@@ -159,7 +159,7 @@ class ProfileController extends Controller
    
 
 
-     $profile =  Profile::find($id)->where('user_id', '=', Auth::user_id);
+     $profile =  Profile::find($id)->where('user_id', '=', Auth::user()->id)->first();
 
      $profile->batsman = $request->input('batsman');
      $profile->bowler = $request->input('bowler');

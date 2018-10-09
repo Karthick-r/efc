@@ -67,7 +67,45 @@ class MatchInController extends Controller
      */
     public function show($id)
     {
-        //
+        
+       if($ms =MatchIn::find($id)->where('user_id', '=', Auth::user()->id)->first()){
+            
+        $tour = $ms->tournament;
+        $year = $ms->year;
+        $team = $ms->team;
+        $vsteam = $ms->vsteam;
+        $teamsc = $ms->teamsc;
+        $yourscore = $ms->yourscore;
+        $yourwicket = $ms->yourwicket;
+        $comsc = $ms->comsc;
+        $result = $ms->result;
+        $location = $ms->location;
+       
+        
+
+       return response()->json([
+        "user_id" => Auth::user()->id,
+        "tournament" => $tour,
+        "year" => $year,
+        "team" => $team,
+        "versus" => $vsteam,
+        "teamscore" => $teamsc,
+        "your score" => $yourscore,
+        "Your Wicket" => $yourwicket,
+        "opposite team score" => $comsc,
+        "result" => $result,
+        "location" => $location 
+       ]);
+       }
+       else{
+        return response()->json([
+           
+            "Failed" => "How do you think you can access this?"
+        
+            ]);
+
+
+       }
     }
 
     /**
@@ -90,8 +128,37 @@ class MatchInController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($ms =MatchIn::find($id)->where('user_id', '=', Auth::user()->id)->first()){
+
+     
+            $ms->tournament = $request->tournament;
+            $ms->year = $request->year;
+
+            $ms->team  = $request->team; 
+            $ms->vsteam  = $request->vsteam;
+            $ms->teamsc  = $request->teamsc;
+            $ms->yourscore  = $request->yourscore;
+            $ms->yourwicket  = $request->yourwicket;
+            $ms->comsc  = $request->comsc;
+            $ms->result  = $request->result;
+            $ms->location  = $request->location;
+
+            $ms->save();
+
+   return response()->json([
+       "success" => 'Match insights Updated Successfully!!'
+   ]);
+
+
     }
+
+    else{
+        return response()->json([
+            "Failed" => "How could you do that?"
+        ]);
+    }
+
+}
 
     /**
      * Remove the specified resource from storage.
@@ -104,3 +171,5 @@ class MatchInController extends Controller
         //
     }
 }
+
+

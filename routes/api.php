@@ -34,23 +34,76 @@ Route::post('/register', [
             'uses' => 'ProfileController@create',
             'as' => 'profile.api'
             ]);
-    
-    
+            Route::get('/profile/{id}', [
+                'uses' => 'ProfileController@show',
+                'as' => 'showe.api'
+                ]);
+                Route::post('/profile/{id}', [
+                    'uses' => 'ProfileController@update',
+                    'as' => 'updatepro.api'
+                    ]);
+
+
+
         Route::post('/score', [
                 'uses' => 'ScoreController@create',
                 'as' => 'score.api'
                 ])->middleware('auth:api');
+              
+        Route::get('/score/{id}', [
+                'uses' => 'ScoreController@show',
+                'as' => 'scoreshow.api'
+                ])->middleware('auth:api');
+
+                Route::post('/score/{id}', [
+                    'uses' => 'ScoreController@update',
+                    'as' => 'scoreupdate.api'
+                    ])->middleware('auth:api');
+
     
                 Route::post('/matchins', [
                     'uses' => 'MatchInController@store',
                     'as' => 'matchins.api'
                     ])->middleware('auth:api');
-            Route::post('/tournamentins', [
+            
+                    Route::get('/matchins/{id}', [
+                        'uses' => 'MatchInController@show',
+                        'as' => 'matchinsshow.api'
+                        ])->middleware('auth:api');
+
+                        Route::post('/matchins/{id}', [
+                            'uses' => 'MatchInController@update',
+                            'as' => 'matchinsupdate.api'
+                            ])->middleware('auth:api');
+
+             
+            
+                    Route::post('/tournamentins', [
                         'uses' => 'TournamentInController@store',
                         'as' => 'tournamentins.api'
                         ])->middleware('auth:api');
+
+
+                        
+                    Route::get('/tournamentins/{id}', [
+                        'uses' => 'TournamentInController@show',
+                        'as' => 'tournamentinsshow.api'
+                        ])->middleware('auth:api');
+                            
+                            
+                            
+                            
+                          
+                    Route::post('/tournamentins/{id}', [
+                        'uses' => 'TournamentInController@update',
+                        'as' => 'tournamentinsupdate.api'
+                        ])->middleware('auth:api');
+
+
+
+
                         Route::post('/bowler', [
-                            'uses' => 'Bowler@store',
+                            'uses' => 'BowlerController@store',
                             'as' => 'Bowler.api'
                             ])->middleware('auth:api');
     
@@ -101,4 +154,17 @@ Route::post('/register', [
                                                     ])->middleware('auth:api');
 
 
+                                                Route::post('/organize/tournament/{id}', [
+                                                    'uses' => 'TournamentController@update',
+                                                    'as' => 'orgupdateshow.api'
+                                                    ])->middleware('auth:api');
+
+                                                    Route::get('/bowler/{id}', [
+                                                        'uses' => 'BowlerController@show',
+                                                        'as' => 'bowshow.api'
+                                                        ])->middleware('auth:api');
                                         
+                                                    Route::post('/bowler/{id}', [
+                                                        'uses' => 'BowlerController@update',
+                                                        'as' => 'bowupdateapi.api'
+                                                        ])->middleware('auth:api');

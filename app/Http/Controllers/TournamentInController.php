@@ -24,6 +24,17 @@ class TournamentInController extends Controller
      */
     public function create()
     {
+    
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         TournamentIn::create([
             'user_id' => Auth::user()->id,
                'tournament' => $request->tournament,
@@ -41,17 +52,6 @@ class TournamentInController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -59,7 +59,43 @@ class TournamentInController extends Controller
      */
     public function show($id)
     {
-        //
+        if($team = TournamentIn::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
+          
+            $tour = $team->tournament;
+            $year = $team->year;
+            $noofins = $team->noofinnings;
+            $totalss = $team->totalsc;
+            $totalwc = $team->totalwc;
+            $awards = $team->awards;
+            $location = $team->location;
+
+            return response()->json(array(
+                "sucesss" => [
+
+      "tournament" =>  $tour,
+      "year" => $year,
+      "No of innings" => $noofins,
+      "total score" => $totalss,
+      "total wickets" => $totalwc,
+      "awards" => $awards,
+      "location" => $location
+                ]
+            ));
+
+ 
+
+        }
+
+        else{
+
+            return response()->json([
+
+      "Failure" => "Hmm.. Try yours!!"
+
+            ]);
+
+
+        }
     }
 
     /**
@@ -82,7 +118,42 @@ class TournamentInController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($team = TournamentIn::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
+            // $tour = $team->tournament;
+            // $year = $team->year;
+            // $noofins = $team->noofinnings;
+            // $totalss = $team->totalsc;
+            // $totalwc = $team->totalwc;
+            // $awards = $team->awards;
+            // $location = $team->location;
+
+            $team->tournament = $request->tournament;
+            $team->year = $request->year;
+            $team->noofinnings =  $request->noofinnings;
+            $team->totalsc = $request->totalsc;
+            $team->totalwc = $request->totalwc;
+            $team->awards =  $request->awards;
+            $team->location = $request->location;
+            $team->save();
+
+            return response()->json([
+
+                "Success" => "Edited Successfully"
+          
+                      ]);
+
+
+        }
+        else{
+            return response()->json([
+
+                "Failure" => "Data requested is not Yours"
+          
+                      ]);
+
+        }
+
+
     }
 
     /**

@@ -16,7 +16,7 @@ class BowlerController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -58,7 +58,40 @@ class BowlerController extends Controller
      */
     public function show($id)
     {
-        //
+       if($bowler = Bowler::find($id)->where('user_id', '=', Auth::user()->id)->first()){
+
+        $totalwc = $bowler->totalwc;
+        $ecrt = $bowler->ecrt;
+        $bb =$bowler->bb ;
+        $hat = $bowler->hat;
+        $hw = $bowler->hw;
+       
+    
+    
+    return response()->json([
+    
+            'user_id' => Auth::user()->id,
+    'total wickets' =>  $totalwc,
+    'Economy rate' => $ecrt,
+    'Best figure' => $bb,
+    'hatricks' => $hat,
+    'wickets by means of' => $hw,
+    
+    ]);
+        }
+    
+    
+        else{
+            
+            return response()->json([
+            
+                "failed" => "Not your data"
+            
+                ]);
+    
+        }
+
+        
     }
 
     /**
@@ -81,7 +114,36 @@ class BowlerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
+        if($bowler = Bowler::find($id)->where('user_id', '=', Auth::user()->id)->first()) {
+
+            $bowler->totalwc = $request->totalwc;
+            $bowler->ecrt = $request->ecrt;
+            $bowler->bb = $request->bb;
+         $bowler->hat = $request->hat;
+
+         $bowler->hw = $request->hw;
+
+ return response()->json([
+              'Success' => 'Bowler data updated'
+          ]);
+
+        }  else{
+
+            return response()->json([
+                'Success' => 'Bowler data is not yours!!'
+            ]);
+  
+
+        }
+
+
+    
+        
+
+
+
     }
 
     /**

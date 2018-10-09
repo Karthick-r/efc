@@ -73,7 +73,7 @@ public function login(Request $request)
             return response()->json(['success' => $success], 200);
     }
     else{
-        return response()->json(['error'=>'These credentials do not match our records'], 200);
+        return response()->json(['error'=>'Your input pairs do not match our records'], 200);
     }
 }
 public function logout()

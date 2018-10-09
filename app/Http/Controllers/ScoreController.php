@@ -116,20 +116,30 @@ class ScoreController extends Controller
 
       
      
-         $score = Score::find($id);
-        $score = Score::create([
-          'user_id' => Auth::user()->id,
-          'highscore' => $request->highscore,
-          'avgst' => $request->avgst,
-          'century' => $request->century,
-          'assets' => $request->assets,
-          'outs' => $request->outs
-        ]);
+         if($score = Score::find($id)->where('user_id', '=', Auth::user()->id)->first()){
+
+
+
+            $score->highscore = $request->highscore;
+            $score->avgst = $request->avgst;
+            $score->century = $request->century;
+            $score->assets = $request->assets;
+            $score->outs = $request->outs;
+         
+                 $score->save();
 
 
         $success = Auth::user()->fname;
         return response()->json(['Success' => $success . "'s Score updated" ]);
     }
+    
+    
+    else{
+        return response()->json(['Failure' => "Try to access yours..." ]);
+
+    }
+
+}
 
     /**
      * Remove the specified resource from storage.
@@ -142,3 +152,5 @@ class ScoreController extends Controller
         //
     }
 }
+
+
