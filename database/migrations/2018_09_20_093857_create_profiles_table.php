@@ -37,3 +37,5 @@ class CreateProfilesTable extends Migration
         Schema::dropIfExists('profiles');
     }
 }
+
+

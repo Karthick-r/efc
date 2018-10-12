@@ -16,6 +16,11 @@ class BowlerController extends Controller
      */
     public function index()
     {
+
+        $auth =  Auth::user();
+
+
+        return response()->json('users', $users);
         
     }
 

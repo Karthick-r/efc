@@ -61,7 +61,11 @@ class HomeController extends Controller
     public function data(){
   
 
+       
         $team = Team::all();
+       
+       
+       
         return response()->json((array('success' => $team)));
 
         
@@ -98,6 +102,23 @@ class HomeController extends Controller
         return Response::json(array('success' => $match));
 
 }
+
+
+public function scoredata(){
+
+
+    
+
+
+}
+
+
+
+
+
+
+
+
 }
 
 

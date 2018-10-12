@@ -21,8 +21,6 @@ class CreateScoresheetsTable extends Migration
             $table->string('inningfirst');
             $table->string('second');
             $table->string('totalruns');
-
-
             $table->timestamps();
         });
     }
