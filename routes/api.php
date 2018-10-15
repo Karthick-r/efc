@@ -207,5 +207,9 @@ Route::post('/register', [
                                                             "as" => "reward"
  
                                                         ]);
+                                                          
+
+
+                                                    
 
                                                         

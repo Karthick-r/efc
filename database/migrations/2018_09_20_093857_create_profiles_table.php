@@ -21,7 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('about');
             $table->boolean('wicketkeeper');
             $table->boolean('allrounder');
-            $table->integer('points');
+            $table->integer('points')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

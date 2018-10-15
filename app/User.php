@@ -52,4 +52,7 @@ class User extends Authenticatable
     public function tournament(){
         return $this->hasMany('App\Tournament');
     }
+
+    
+
 }

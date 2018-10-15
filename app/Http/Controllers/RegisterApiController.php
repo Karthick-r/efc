@@ -20,7 +20,8 @@ class RegisterApiController extends Controller
              'zone' => 'required|string|max:255',
              'country' => 'required',
              'city' => 'required',
-             'pincode' => 'required'
+             'pincode' => 'required',
+             'gender' => 'required',
              
 
  
@@ -37,6 +38,9 @@ class RegisterApiController extends Controller
             $user->city=$request->input('city');
             $user->pincode=$request->input('pincode');
             $user->avatar=$request->input('avatar');
+            $user->gender=$request->input('gender');
+            $user->dob=$request->input('dob');
+
             $user->status=1;
             $user->deleted_on_off=1;
             $user->role_id= 1;

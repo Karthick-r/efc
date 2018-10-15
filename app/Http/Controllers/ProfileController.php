@@ -51,11 +51,20 @@ class ProfileController extends Controller
       $profile->batsman = $request->input('batsman');
       $profile->bowler = $request->input('bowler');
       $profile->about = $request->input('about');
+      $profile->refferedby = $request->input('refferedby');
 
       $profile->wicketkeeper = $request->input('wicketkeeper');
       $profile->allrounder = $request->input('allrounder');
+      
+
       $profile->user_id = Auth::user()->id;
       $profile->save();
+      
+      
+
+
+
+      
       $success = Auth::user()->fname . " profile created Successfully";
        return response()->json(['Sucess' => $success], 200);
 
@@ -178,6 +187,12 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $app = Profile::find($id);
+
+
+        $app->delete();
+
+        
     }
 }
