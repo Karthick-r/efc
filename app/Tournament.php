@@ -27,4 +27,7 @@ public function users()
 public function teams(){
     return $this->hasMany('App\Team');
 }
+public function tournamentins(){
+    return $this->belongsTo('App\Tournament');
+}
 }
