@@ -16,7 +16,6 @@ class CreateMatchInsTable extends Migration
         Schema::create('match_ins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('team_id')->unsigned()->index();
 
             $table->date('year')->nullable();
             $table->string('team')->nullable();
@@ -28,7 +27,6 @@ class CreateMatchInsTable extends Migration
             $table->string('result')->nullable();
             $table->string('location')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('team_id')->references('id')->on('teams');
 
             $table->timestamps();
         });

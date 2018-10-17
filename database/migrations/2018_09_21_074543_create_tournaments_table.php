@@ -16,8 +16,6 @@ class CreateTournamentsTable extends Migration
         Schema::create('tournaments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('organize_id')->unsigned()->index();
-            $table->integer('team_id')->unsigned()->index();
             $table->string('noofteams')->nullable();
             $table->string('tourtype')->nullable();
             $table->string('tourentry')->nullable();
@@ -28,8 +26,6 @@ class CreateTournamentsTable extends Migration
             $table->string('dresscode')->nullable();
             $table->string('uniform')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('organize_id')->references('id')->on('organizes');
-            $table->foreign('team_id')->references('id')->on('teams');
 
             $table->timestamps();
         });
