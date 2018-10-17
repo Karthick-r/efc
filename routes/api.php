@@ -36,7 +36,7 @@ Route::post('/register', [
             ]);
             
             
-            Route::get('/profile/{id}', [
+            Route::get('/profile/{user_id}', [
                 'uses' => 'ProfileController@show',
                 'as' => 'showe.api'
                 ]);
@@ -172,7 +172,7 @@ Route::post('/register', [
                                                         ])->middleware('auth:api');
 
 
-                                                        route::get('/profiles/{id}', [
+                                                        Route::get('/profiles/{id}', [
 
                                                             "uses" => "HomeController@detail",
                                                             "as" => "profileget"
@@ -180,32 +180,37 @@ Route::post('/register', [
                                                         ]);
 
                                                     
-                                                        route::get('/teams', [
+                                                        Route::get('/teams', [
 
                                                             "uses" => "HomeController@data",
                                                             "as" => "gettour"
  
                                                         ]);
 
-                                                        route::get('/tournaments', [
+                                                        Route::get('/tournaments', [
 
                                                             "uses" => "HomeController@tour",
                                                             "as" => "gettour"
  
                                                         ]);
 
-                                                           route::get('/get/matches', [
+                                                           Route::get('/get/matches', [
 
                                                             "uses" => "HomeController@match",
                                                             "as" => "getmatch"
  
                                                         ]);
 
-                                                        route::get('/reward', [
+                                                        Route::get('/reward/{phone}', [
 
                                                             "uses" => "HomeController@reward",
                                                             "as" => "reward"
  
+                                                        ]);
+
+                                                        Route::get('/data/val', [
+                                                                   'uses' => 'ProfileApiController@fetch',
+                                                                   'as' => ''
                                                         ]);
                                                           
 

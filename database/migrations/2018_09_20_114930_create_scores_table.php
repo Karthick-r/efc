@@ -16,11 +16,11 @@ class CreateScoresTable extends Migration
         Schema::create('scores', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('highscore');
+            $table->integer('highscore')->nullable();
             $table->integer('avgst')->default(0);
-            $table->string('century');
-            $table->string('assets');
-            $table->string('outs');
+            $table->string('century')->nullable();
+            $table->string('assets')->nullable();
+            $table->string('outs')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

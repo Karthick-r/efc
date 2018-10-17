@@ -39,8 +39,6 @@ class MatchInController extends Controller
 
         MatchIn::create([
             'user_id' => Auth::user()->id,
-               'tournament' => $request->tournament,
-               'year' => $request->year,
                'team' => $request->team,
                'vsteam' => $request->vsteam,
                'teamsc' => $request->teamsc,
@@ -70,8 +68,6 @@ class MatchInController extends Controller
         
        if($ms =MatchIn::find($id)->where('user_id', '=', Auth::user()->id)->first()){
             
-        $tour = $ms->tournament;
-        $year = $ms->year;
         $team = $ms->team;
         $vsteam = $ms->vsteam;
         $teamsc = $ms->teamsc;
@@ -131,8 +127,6 @@ class MatchInController extends Controller
         if($ms =MatchIn::find($id)->where('user_id', '=', Auth::user()->id)->first()){
 
      
-            $ms->tournament = $request->tournament;
-            $ms->year = $request->year;
 
             $ms->team  = $request->team; 
             $ms->vsteam  = $request->vsteam;

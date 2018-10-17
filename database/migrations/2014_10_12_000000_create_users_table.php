@@ -25,6 +25,9 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('avatar');
+            $table->string('dob');
+            $table->string('gender');
+
             $table->integer('status');
             $table->boolean('deleted_on_off');
             $table->boolean('admin');

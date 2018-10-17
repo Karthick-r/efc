@@ -44,13 +44,26 @@ class User extends Authenticatable
         return $this->hasOne('App\Bowler');
     }
     public function team(){
+        
         return $this->hasOne('App\Team');
     }
-    public function organize(){
+    public function organize()
+    
+    {
+    
+    
         return $this->hasMany('App\Organize');
+    
+    
     }
-    public function tournament(){
+
+
+    public function tournament() {
+       
+       
         return $this->hasMany('App\Tournament');
+         
+    
     }
 
     

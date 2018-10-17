@@ -16,11 +16,11 @@ class CreateBowlersTable extends Migration
         Schema::create('bowlers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('totalwc');
-            $table->integer('ecrt');
-            $table->string('bb');
-            $table->string('hat');
-            $table->string('hw');
+            $table->integer('totalwc')->nullable();
+            $table->integer('ecrt')->nullable();
+            $table->string('bb')->nullable();
+            $table->string('hat')->nullable();
+            $table->string('hw')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

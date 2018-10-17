@@ -21,11 +21,12 @@ class RegisterApiController extends Controller
              'country' => 'required',
              'city' => 'required',
              'pincode' => 'required',
-             'gender' => 'required',
              
 
  
         ]);
+
+        
   
              $user = new User;
             $user->fname=$request->input('fname');
@@ -38,9 +39,7 @@ class RegisterApiController extends Controller
             $user->city=$request->input('city');
             $user->pincode=$request->input('pincode');
             $user->avatar=$request->input('avatar');
-            $user->gender=$request->input('gender');
-            $user->dob=$request->input('dob');
-
+            
             $user->status=1;
             $user->deleted_on_off=1;
             $user->role_id= 1;
@@ -48,9 +47,11 @@ class RegisterApiController extends Controller
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->fname;
+            $success['id'] = $user->id;
+
        return response()->json(['success'=>$success], 200);
        
-    
+                      
     }
 
 public function login(Request $request)
@@ -72,6 +73,8 @@ public function login(Request $request)
  
     if (Auth::attempt($request->only($login_type, 'password'))) {
              $user = Auth::user();
+             $success['id'] = $user->id;
+             $success['name'] = $user->fname;
 
         $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => $success], 200);

@@ -5,7 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
+use App\Bowler;
+use DB;
+use App\Tournament;
+use App\TournamentIn;
+use App\MatchIn;
 use Auth;
+use App\Score;
 class ProfileController extends Controller
 {
 
@@ -51,22 +57,49 @@ class ProfileController extends Controller
       $profile->batsman = $request->input('batsman');
       $profile->bowler = $request->input('bowler');
       $profile->about = $request->input('about');
-      $profile->refferedby = $request->input('refferedby');
 
       $profile->wicketkeeper = $request->input('wicketkeeper');
       $profile->allrounder = $request->input('allrounder');
-      
+      $profile->refferedby = $request->input('refferedby');
+
 
       $profile->user_id = Auth::user()->id;
       $profile->save();
       
+      $tour = new Tournament;
+      $tour->user_id = Auth::user()->id;
+      $tour->save();
+ 
+
+$tour_ins = new TournamentIn;
+
+$tour_ins->user_id = Auth::user()->id;
+
+
+$tour_ins->save();
+
+
+$bow  = new Bowler;
+
+$bow->user_id = Auth::user()->id;
       
+$bow->save();
 
 
+$scr = new Score;
+$scr->user_id = Auth::user()->id;
+$scr->save();
 
-      
-      $success = Auth::user()->fname . " profile created Successfully";
-       return response()->json(['Sucess' => $success], 200);
+$matchins = new Matchin;
+
+$matchins->user_id = Auth::user()->id;
+$matchins->save();
+
+
+ 
+
+  $success = Auth::user()->fname . " profile created Successfully";
+    return response()->json(['Sucess' => $success], 200);
 
     }
 
@@ -86,9 +119,22 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id)
+
+
     {
-        if($profile = Profile::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
+
+        
+        if($profile = Profile::where('user_id' , $user_id)->first()){
+
+            if($profile->user_id !== Auth::user()->id){
+                return response()->json([
+                
+                    "failed" => "not your data"
+                
+                    ]);
+
+            }else{
 
             // 'batsman' => 'required',
             // 'bowler' => 'required',
@@ -102,31 +148,128 @@ class ProfileController extends Controller
             $state =$profile->about ;
             $city = $profile->wicketkeeper;
             $pin = $profile->allrounder;
+           $get =  DB::table('tournament_ins')
+           ->where('user_id',Auth::user()->id)->first();   
            
+           
+           $bowlers =  DB::table('bowlers')
+           ->where('user_id',Auth::user()->id)->first();
+              
+           $tours =  DB::table('tournaments')
+           ->where('user_id',Auth::user()->id)->first();
+            
+           $ms = DB::table('match_ins')->where('user_id',  Auth::user()->id)->get();
+           $ts = DB::table('tournament_ins')->where('user_id',  Auth::user()->id)->get();
+
+           $scrs =  DB::table('scores')
+           ->where('user_id',Auth::user()->id)->first();
+$value  = array();
+$value1 = array();
+foreach( $ms as $mss){
+
+
+           $value[] = [
+               
+           'team' => $mss->team,
+           'versus' => $mss->vsteam,
+           'team score' => $mss->teamsc,
+           'your score' => $mss->yourscore,
+           'your wicket' => $mss->yourwicket,
+           'result' => $mss->result,
+        'awards' => $mss->awards,
+           'location' => $mss->location,
+          'date' => $mss->created_at
         
+          
+           ];
+
+
+}
+foreach( $ts as $mss){
+
+
+    $value1[] = 
         
+      $mss->awards;
+   
+   
+  
+
+
+}
+
+
         return response()->json([
         
                 'user_id' => Auth::user()->id,
-        'Batsman' =>  $teamname,
-        'bowler' => $country,
-        'about' => $state,
-        'wk' => $city,
-        'allrounder' => $pin,
+                "name"=> Auth::user()->fname,
+                "total_rewards" =>Auth::user()->points,
+                "total_matches"=> $get->noofinnings,
+                "total_wickets"=> $get->totalwc,
+
+                    "total_runs"=> $get->totalsc,
+
+                "img_url" => Auth::user()->avatar,
+                "info" => [
+                  "dob" => Auth::user()->dob,
+                 "place" => Auth::user()->city,
+                 'Batsman' =>  $teamname,
+                  'bowler' => $country,
+                'about' => $state,
+               'wk' => $city,
+         'allrounder' => $pin,
+
+                ],
+
+                "batsman" =>[
+                    
+
+                    "high score" => $scrs->highscore,
+                    "average strike rate" => $scrs->avgst,
+                    "half century" => $scrs->fifty,
+                    "century" => $scrs->century,
+                    "fours" => $scrs->fours,
+                    "sixes" => $scrs->assets
+
+                    
+                ],
+                "bowler" =>[
+
+
+                    'bowler' => $country,
+                    "total_wickets"=> $bowlers->totalwc,
+                    "economy" => $bowlers->ecrt,
+                    "best bowling" => $bowlers->bb,
+                    "hatricks" => $bowlers->hat,
+                     "how wickets" => $bowlers->hw
+
+                         
+                ],
+                "tournament" => $tours->tourtype,
+                
+                "match_insghts" => 
+                    
+                    $value
+                
+                ,
+            "awards" =>
+
+                $value1
+
+
+       
+
         
         ]);
+
+            }
             }
         
         
-            else{
-                
-                return response()->json([
-                
-                    "failed" => "Not your data"
-                
-                    ]);
+            
+                     
         
-            }
+           
     }
 
     /**
@@ -163,7 +306,7 @@ class ProfileController extends Controller
    
 
 
-     $profile =  Profile::find($id)->where('user_id', '=', Auth::user()->id)->first();
+     $profile =  Profile::find($id)->where('user_id', '=', Auth::user()->id)->get();
 
      $profile->batsman = $request->input('batsman');
      $profile->bowler = $request->input('bowler');

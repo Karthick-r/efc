@@ -11,5 +11,15 @@ class Organize extends Model
 public function user(){
     return $this->belongsTo('App\User');
 }
+public function tournament(){
+  return $this->belongsTo('App\Tournament');
+}
 
+
+public function matchins(){
+  return $this->belongsTo('App\MatchIn');
+}
+public function teams(){
+  return $this->belongsTo('App\Team');
+}
 }

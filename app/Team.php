@@ -11,4 +11,20 @@ class Team extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function tournament(){
+        return $this->belongsTo('App\Tournament');
+    }
+
+    public function organizes(){
+        return $this->hasMany('App\Organize');
+    }
+
+
+    public function matchins(){
+        return $this->hasMany('App\MatchIn');
+    }
+    public function tournamentins(){
+        return $this->hasMany('App\TournamentIn');
+    }
 }

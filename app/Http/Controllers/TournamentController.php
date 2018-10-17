@@ -88,7 +88,7 @@ return response()->json([
     public function show(Request $request, $id)
     {
      
-if($tour = Tournament::find($id)->where('user_id', Auth::user()->id)->first()){
+if($tour = Tournament::find($id)->where('user_id', Auth::user()->id)->get()){
 
 
 

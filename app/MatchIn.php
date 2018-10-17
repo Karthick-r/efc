@@ -12,4 +12,11 @@ class MatchIn extends Model
 
         return $this->belongsTo('App\User');
     } 
+
+    public function organizes(){
+        return $this->hasOne('App\Organize');
+      }
+      public function teams(){
+        return $this->belongsTo('App\Team');
+      }
 }
