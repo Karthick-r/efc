@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 
+
+
 use App\Tournament;
 use Response;
 use App\Team;
@@ -94,12 +96,17 @@ class HomeController extends Controller
 
 
 }
-    public function match(){
+    public function dashboard(){
 
 
-        $match = Organize::all();
+        $match = Organize::where('live', '=', 1 )->take(5)->get();
+        $matchs = Tournament::where('live', '=', 1 )->take(5)->get();
 
-        return Response::json(array('success' => $match));
+
+
+
+
+
 
 }
 

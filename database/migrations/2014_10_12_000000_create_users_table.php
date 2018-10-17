@@ -24,9 +24,9 @@ class CreateUsersTable extends Migration
             $table->integer('pincode');
             $table->string('city');
             $table->string('country');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('dob');
-            $table->string('gender');
+            $table->string('gender')->nullable();
 
             $table->integer('status');
             $table->boolean('deleted_on_off');

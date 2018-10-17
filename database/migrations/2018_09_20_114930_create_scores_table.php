@@ -19,6 +19,9 @@ class CreateScoresTable extends Migration
             $table->integer('highscore')->nullable();
             $table->integer('avgst')->default(0);
             $table->string('century')->nullable();
+            $table->string('fours')->nullable();
+            $table->string('fifty')->nullable();
+
             $table->string('assets')->nullable();
             $table->string('outs')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

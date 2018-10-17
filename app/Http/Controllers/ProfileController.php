@@ -60,7 +60,6 @@ class ProfileController extends Controller
 
       $profile->wicketkeeper = $request->input('wicketkeeper');
       $profile->allrounder = $request->input('allrounder');
-      $profile->refferedby = $request->input('refferedby');
 
 
       $profile->user_id = Auth::user()->id;
@@ -169,15 +168,17 @@ foreach( $ms as $mss){
 
 
            $value[] = [
-               
+            'id' => $mss->id,
            'team' => $mss->team,
            'versus' => $mss->vsteam,
            'team score' => $mss->teamsc,
            'your score' => $mss->yourscore,
            'your wicket' => $mss->yourwicket,
+           'opponent score' => $mss->comsc,
+
            'result' => $mss->result,
-        'awards' => $mss->awards,
            'location' => $mss->location,
+
           'date' => $mss->created_at
         
           
@@ -188,12 +189,12 @@ foreach( $ms as $mss){
 foreach( $ts as $mss){
 
 
-    $value1[] = 
+    $value1[] = [
         
-      $mss->awards;
-   
-   
-  
+    'awards' =>   $mss->awards,
+     'awardsname' => $mss->awardsname
+
+    ];  
 
 
 }

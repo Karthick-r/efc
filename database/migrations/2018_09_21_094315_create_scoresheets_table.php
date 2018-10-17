@@ -15,12 +15,21 @@ class CreateScoresheetsTable extends Migration
     {
         Schema::create('scoresheets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('match');
-            $table->string('tosswon');
-            $table->string('tournament');
-            $table->string('inningfirst');
-            $table->string('second');
-            $table->string('totalruns');
+            $table->string('match')->nullable();
+            $table->string('team1')->nullable();
+            $table->string('team2')->nullable();
+            $table->string('t1score')->nullable();
+            $table->string('t2team1')->nullable();
+            $table->string('t1overs')->nullable();
+            $table->string('t2overs')->nullable();
+            $table->string('city')->nullable();
+            $table->string('tournament')->nullable();
+            $table->string('tosswon')->nullable();
+            $table->string('inningfirst')->nullable();
+            $table->string('second')->nullable();
+            $table->string('totalruns')->nullable();
+            $table->string('totalruns')->nullable();
+
             $table->timestamps();
         });
     }

@@ -63,7 +63,7 @@ class OrganizeController extends Controller
         $organize = new Organize;
 
         $organize->user_id = Auth::user()->id;
-
+         
         $organize->country = $request->country;
         $organize->state = $request->state;
 

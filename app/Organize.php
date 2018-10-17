@@ -22,4 +22,7 @@ public function matchins(){
 public function teams(){
   return $this->belongsTo('App\Team');
 }
+
+
+
 }
