@@ -16,6 +16,7 @@ class CreateTournamentInsTable extends Migration
         Schema::create('tournament_ins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
+            $table->integer('tournament_id')->unsigned()->index();
             $table->string('tournament')->nullable();
             $table->date('year')->nullable();
             $table->integer('noofinnings')->nullable();

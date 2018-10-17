@@ -16,6 +16,7 @@ class CreateOrganizesTable extends Migration
         Schema::create('organizes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
+            $table->integer('team_id')->unsigned()->index();
 
             $table->date('matchdate')->nullable();
             $table->string('country')->nullable();
