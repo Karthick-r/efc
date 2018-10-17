@@ -16,7 +16,7 @@ class CreateOrganizesTable extends Migration
         Schema::create('organizes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('team_id')->unsigned()->index();
+            $table->integer('team_id')->unsigned()->index()->nullable();
 
             $table->date('matchdate')->nullable();
             $table->string('country')->nullable();
@@ -24,6 +24,8 @@ class CreateOrganizesTable extends Migration
             $table->string('city')->nullable();
             $table->integer('pin')->nullable();
             $table->string('whovswho')->nullable();
+            $table->string('oppo')->nullable();
+
             $table->string('currency')->nullable();
             $table->integer('entryfee')->nullable();
             $table->string('lastdayforpay')->nullable();

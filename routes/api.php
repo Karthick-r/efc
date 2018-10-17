@@ -208,8 +208,16 @@ Route::post('/register', [
  
                                                         ]);
 
-                                                        Route::get('/data/val', [
-                                                                   'uses' => 'ProfileApiController@fetch',
+
+                                                        Route::get('/dashboard', [
+
+                                                            "uses" => "HomeController@dash",
+                                                            "as" => "dash"
+ 
+                                                        ]);
+
+                                                        Route::post('/scorecard', [
+                                                                   'uses' => 'ScoresheetController@index',
                                                                    'as' => ''
                                                         ]);
                                                           

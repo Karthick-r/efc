@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 
-
+use Carbon\Carbon;
 
 use App\Tournament;
 use Response;
@@ -99,9 +99,49 @@ class HomeController extends Controller
     public function dashboard(){
 
 
-        $match = Organize::where('live', '=', 1 )->take(5)->get();
-        $matchs = Tournament::where('live', '=', 1 )->take(5)->get();
+        $valid = Carbon::now();
 
+        $sheet = Scoresheet::where('live', '=', 1 )->take(5)->get();
+$data = Organize::where('created_at', '>', $valid)->take(4)->get();
+$tour = Tournament::where('created_at', '>', $valid)->take(4)->get();
+$scoresheet = array();
+
+
+$org = array();
+
+$tours = array();
+
+foreach($sheet as $sheets){
+
+    $scoresheet[] = [
+        "id" => $sheets->id,
+        "team1" => $sheets->team1,
+        "team2" => $sheets->team2,
+        "t1score" => $sheets->t1score,
+        "t2team1" => $sheets->t2team1,
+        "t1overs" => $sheets->t1overs,
+        "t2overs" => $sheets->t2overs,
+        "city" => $sheets->city,
+        "city" => $sheets->city,
+
+        
+    ];
+
+}
+
+foreach($data as $orgs){
+    $org[] = [
+
+        "id" => $orgs->id,
+        "team1" => $orgs->whovswho,
+        "team2" => $orgs->oppo,
+        "venue" => $orgs->venue,
+        "date" => $orgs->created_at
+        
+
+
+
+    ];
 
 
 
@@ -110,6 +150,36 @@ class HomeController extends Controller
 
 }
 
+foreach($tour as $gain){
+    $tours[] = [
+
+        "id" => $gain->id,
+        "name" => $gain->tourtype,
+        "date" => $gain->created_at,
+        "venue" => $gain->venue,
+        "date" => $gain->created_at
+        
+
+
+
+    ];
+}
+
+
+
+return response()->json([
+    "live matches" => [
+       $scoresheet
+    ],
+
+    "featured tournaments" => [
+        $org
+    ],
+    "featured tournaments" =>[
+        $tours
+    ]
+
+]);
 
 
 
@@ -118,6 +188,18 @@ class HomeController extends Controller
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 }

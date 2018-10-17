@@ -39,7 +39,9 @@ class RegisterApiController extends Controller
             $user->city=$request->input('city');
             $user->pincode=$request->input('pincode');
             $user->avatar=$request->input('avatar');
-            
+            $user->dob=$request->input('dob');
+            $user->gender=$request->input('gender');
+
             $user->status=1;
             $user->deleted_on_off=1;
             $user->role_id= 1;

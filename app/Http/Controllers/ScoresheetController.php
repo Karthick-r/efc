@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Scoresheet;
+use Auth;
 class ScoresheetController extends Controller
 {
+
+    public function __construct()
+    {
+         return $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class ScoresheetController extends Controller
      */
     public function index()
     {
-        //
+       
+
     }
 
     /**
@@ -34,7 +42,25 @@ class ScoresheetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         
+        $sheet =  new Scoresheet;
+
+
+        $sheet->match = $request->match;
+        $sheet->team1 = $request->team1;
+        $sheet->team2 = $request->team2;
+        $sheet->t1score = $request->t1score;
+        $sheet->t2score = $request->t2score;
+        $sheet->t1overs = $request->t1overs;
+        $sheet->t2overs = $request->t2overs;
+        $sheet->city = $request->city;
+        $sheet->tournament = $request->tournament;
+        $sheet->totalruns = $request->totalruns;
+        $sheet->live = 1;
+
+
+        $sheet->save();
+
     }
 
     /**
