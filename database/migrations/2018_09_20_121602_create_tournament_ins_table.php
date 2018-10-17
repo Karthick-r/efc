@@ -16,7 +16,6 @@ class CreateTournamentInsTable extends Migration
         Schema::create('tournament_ins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('tournament_id')->unsigned()->index();
             $table->string('tournament')->nullable();
             $table->date('year')->nullable();
             $table->integer('noofinnings')->nullable();
@@ -26,7 +25,6 @@ class CreateTournamentInsTable extends Migration
             $table->integer('awardsname')->nullable();
             $table->string('location')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('tournament_id')->references('id')->on('tournaments');
             $table->timestamps();
         });
     }
