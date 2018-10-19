@@ -46,14 +46,16 @@ class TeamController extends Controller
         else{
 
 
-            $team = new Team;
-$team->user_id = Auth::user()->id;
-$team->teamname =  $request->teamname;
-$team->country = $request->country;
-$team->state = $request->state;
-$team->city = $request->city;
-$team->pin = $request->pin;
-$team->players = "players table";
+            $team = Team::create([
+"user_id" => Auth::user()->id,
+"teamname" =>  $request->teamname,
+"country" => $request->country,
+"state" => $request->state,
+"city" => $request->city,
+"pin" => $request->pin,
+"players" => "players table",
+            ]);
+
        
 
 
