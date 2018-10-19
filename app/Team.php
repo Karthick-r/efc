@@ -31,7 +31,7 @@ class Team extends Model
 
     public function players(){
 
-        return $this->hasMany('App\Players');
+        return $this->belongsToMany('App\Players');
 
         
     }

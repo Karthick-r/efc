@@ -10,9 +10,9 @@ class Players extends Model
 {
     
 
-    public function team()
+    public function teams()
     {
-        return $this->belongsTo('App\Team');
+        return $this->belongsToMany('App\Team');
     }
 
 }
