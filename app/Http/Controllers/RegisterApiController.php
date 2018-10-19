@@ -7,6 +7,8 @@ use App\User;
 use Auth;
 use Validator;
 
+use App\Players;
+
 class RegisterApiController extends Controller
 {
     public function RegisterApi(Request $request){
@@ -46,10 +48,17 @@ class RegisterApiController extends Controller
             $user->deleted_on_off=1;
             $user->role_id= 1;
             $user->admin=0;
+            $player = new Players;
+
+
+            $player->players =  $request->fname;
+
+            $player->save();
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->fname;
             $success['id'] = $user->id;
+         
 
        return response()->json(['success'=>$success], 200);
        

@@ -17,7 +17,6 @@ class CreateTeamPlayerTable extends Migration
             $table->increments('id');
             $table->integer('team_id')->unsigned();
             $table->integer('player_id')->unsigned();
-
             $table->timestamps();
         });
     }
