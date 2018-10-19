@@ -9,6 +9,8 @@ use App\Profile;
 
 use Carbon\Carbon;
 
+use App\Scoresheet;
+
 use App\Tournament;
 use Response;
 use App\Team;
@@ -136,11 +138,8 @@ foreach($data as $orgs){
         "team1" => $orgs->whovswho,
         "team2" => $orgs->oppo,
         "venue" => $orgs->venue,
-        "date" => $orgs->created_at
+        "date" => reset($orgs->created_at)
         
-
-
-
     ];
 
 
@@ -157,27 +156,23 @@ foreach($tour as $gain){
         "name" => $gain->tourtype,
         "date" => $gain->created_at,
         "venue" => $gain->venue,
-        "date" => $gain->created_at
-        
-
-
-
+        "date" => reset($gain->created_at),
     ];
 }
 
 
 
 return response()->json([
-    "live matches" => [
+    "live matches" => 
        $scoresheet
-    ],
+    ,
 
-    "featured tournaments" => [
+    "featured matches" => 
         $org
-    ],
-    "featured tournaments" =>[
+    ,
+    "featured tournaments" =>
         $tours
-    ]
+    
 
 ]);
 

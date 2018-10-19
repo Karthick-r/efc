@@ -28,5 +28,12 @@ class Team extends Model
         return $this->hasMany('App\TournamentIn');
     }
 
+
+    public function players(){
+
+        return $this->hasMany('App\Players');
+
+        
+    }
     
 }

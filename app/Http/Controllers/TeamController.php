@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 Use App\Team;
 use Auth;
 
+use App\Players;
+
 class TeamController extends Controller
 {
     /**
@@ -26,7 +28,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -43,15 +45,22 @@ class TeamController extends Controller
         }
         else{
 
-        Team::create([
-'user_id' => Auth::user()->id,
-'teamname' =>  $request->teamname,
-'country' => $request->country,
-'state' => $request->state,
-'city' => $request->city,
-'pin' => $request->pin,
-'players' => $request->players
-        ]);
+
+            $team = new Team;
+$team->user_id = Auth::user()->id;
+$team->teamname =  $request->teamname;
+$team->country = $request->country;
+$team->state = $request->state;
+$team->city = $request->city;
+$team->pin = $request->pin;
+$team->players = "players table";
+       
+
+
+        $team->players()->attach($request->players);
+
+    
+    
       
 
         return response()->json([
@@ -75,7 +84,7 @@ class TeamController extends Controller
     $state = $team->state;
     $city = $team->city;
     $pin = $team->pin;
-    $players = $team->players;
+    $players = "see players table";
    
 
 
@@ -88,8 +97,21 @@ return response()->json([
 'city' => $city,
 'pin' => $pin,
 'players' => $players
-]);
+], 200);
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
 
 
     else{

@@ -27,7 +27,6 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('dob');
             $table->string('gender')->nullable();
-
             $table->integer('status');
             $table->boolean('deleted_on_off');
             $table->boolean('admin');

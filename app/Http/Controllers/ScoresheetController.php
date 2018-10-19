@@ -57,9 +57,27 @@ class ScoresheetController extends Controller
         $sheet->tournament = $request->tournament;
         $sheet->totalruns = $request->totalruns;
         $sheet->live = 1;
+       
+
+        $sheet->save();
+
+        return response()->json([
+            "success" 
+        ]);
+
+    }
+
+    public function finished($id)
+    {
+        
+        $sheet = Scoresheet::find($id);
+
+
+        $sheet->live = 0;
 
 
         $sheet->save();
+
 
     }
 
@@ -71,7 +89,7 @@ class ScoresheetController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

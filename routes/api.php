@@ -211,16 +211,19 @@ Route::post('/register', [
 
                                                         Route::get('/dashboard', [
 
-                                                            "uses" => "HomeController@dash",
+                                                            "uses" => "HomeController@dashboard",
                                                             "as" => "dash"
  
                                                         ]);
 
                                                         Route::post('/scorecard', [
-                                                                   'uses' => 'ScoresheetController@index',
+                                                                   'uses' => 'ScoresheetController@store',
                                                                    'as' => ''
                                                         ]);
-                                                          
+                                                    Route::post('/scorecard/{id}', [
+                                                            'uses' => 'ScoresheetController@finished',
+                                                            'as' => 'score.end'
+                                                 ]);  
 
 
                                                     

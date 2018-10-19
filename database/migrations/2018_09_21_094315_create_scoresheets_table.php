@@ -29,7 +29,6 @@ class CreateScoresheetsTable extends Migration
             $table->string('second')->nullable();
             $table->string('totalruns')->nullable();
             $table->boolean('live')->nullable();
-
             $table->timestamps();
         });
     }
