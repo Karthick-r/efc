@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +30,14 @@ Route::get('/home', [
 ]);
 Route::get('/seeusers', [
 
-    'uses' => 'HomeController@users'
+    'uses' => 'HomeController@allusers'
+
+]);
+
+Route::get('/block/{id}', [
+
+    'uses' => 'HomeController@blocked',
+    'as' => 'block'
 
 ]);
 });

@@ -19,6 +19,8 @@
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/core/menu/menu-types/vertical-menu.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/core/colors/palette-gradient.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/tables/datatable/datatables.min.css')}}">
+
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('csnew/css/style.css')}}">

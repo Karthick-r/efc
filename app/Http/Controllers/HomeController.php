@@ -226,6 +226,26 @@ public function checknum(){
 
 }
 
+public function allusers(){
+    $user = User::all();
+
+
+    return view('userdata')->with('user', $user);
+}
+
+
+public function blocked($id){
+    $user = User::find($id);
+
+
+
+$user->role_id = 4;
+
+$user->save();
+
+
+return redirect()->back();
+}
 
 }
 
