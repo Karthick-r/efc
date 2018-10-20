@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Session;
+use Auth;
 use Closure;
 
 class AdminCheck
@@ -15,6 +16,22 @@ class AdminCheck
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+        if(Auth::check()){
+        if(Auth::user()->admin){
+            return $next($request);
+
+        }else{
+            Session::flash('failed', 'Admin only allowed');
+            return redirect()->back();
+        }
+
+    }
+    else{
+        Session::flash('failed', 'login');
+
+        return redirect()->back();
+
+    }
     }
 }

@@ -228,4 +228,21 @@ Route::post('/register', [
 
                                                     
 
-                                                        
+                                                 Route::get('/showusers', [
+
+                                                    "uses" => "HomeController@showusers",
+                                                    "as" => "showusers"
+
+                                                ]);
+
+
+                                                Route::post('/checknumberexists', [
+                                                    
+                                                    'uses' => 'HomeController@checknum'
+                                                ]);
+
+                                                
+
+                                              
+
+

@@ -119,13 +119,6 @@ class TournamentInController extends Controller
     public function update(Request $request, $id)
     {
         if($team = TournamentIn::find($id)->where('user_id' ,'=', Auth::user()->id)->first()){
-            // $tour = $team->tournament;
-            // $year = $team->year;
-            // $noofins = $team->noofinnings;
-            // $totalss = $team->totalsc;
-            // $totalwc = $team->totalwc;
-            // $awards = $team->awards;
-            // $location = $team->location;
 
             $team->tournament = $request->tournament;
             $team->year = $request->year;

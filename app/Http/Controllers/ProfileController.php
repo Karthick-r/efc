@@ -57,11 +57,17 @@ class ProfileController extends Controller
       $profile->batsman = $request->input('batsman');
       $profile->bowler = $request->input('bowler');
       $profile->about = $request->input('about');
+      $profile->allrounder = $request->input('wicketkeeper');
 
       $profile->wicketkeeper = $request->input('wicketkeeper');
-      $profile->allrounder = $request->input('allrounder');
-
-
+      
+         $profile->zone = $request->input('zone');
+$profile->country = $request->input('country');
+$profile->city = $request->input('city');
+$profile->pincode = $request->input('pincode');
+$profile->avatar = $request->input('avatar');
+$profile->dob = $request->input('dob');
+$profile->gender = $request->input('gender');
       $profile->user_id = Auth::user()->id;
       $profile->save();
       
@@ -147,6 +153,13 @@ $matchins->save();
             $state =$profile->about ;
             $city = $profile->wicketkeeper;
             $pin = $profile->allrounder;
+             $zone = $profile->zone ;
+             $countrys = $profile->country;
+             $citys = $profile->city; 
+           $pincode = $profile->pincode;
+         $avatars = $profile->avatar;
+          $dobs = $profile->dob;
+            $genders = $profile->gender;
            $get =  DB::table('tournament_ins')
            ->where('user_id',Auth::user()->id)->first();   
            
@@ -210,15 +223,18 @@ foreach( $ts as $mss){
 
                     "total_runs"=> $get->totalsc,
 
-                "img_url" => Auth::user()->avatar,
+                "img_url" => $avatar,
                 "info" => [
-                  "dob" => Auth::user()->dob,
-                 "place" => Auth::user()->city,
+                  "dob" => $dobs,
+                 "place" => $citys,
                  'Batsman' =>  $teamname,
                   'bowler' => $country,
                 'about' => $state,
                'wk' => $city,
-         'allrounder' => $pin,
+        "pincode" => $pincode,
+      "country" => $countrys,
+     "gender" => $genders,
+    'allrounder' => $pin,
 
                 ],
 
@@ -318,7 +334,7 @@ foreach( $ts as $mss){
      $profile->user_id = Auth::user()->id;
      $profile->save();
      $success = Auth::user()->fname . "Your profile edited Successfully";
-      return response()->json(['Sucess' => $success], 200);
+      return response()->json(['Success' => $success], 200);
 
    
     }

@@ -18,11 +18,7 @@ class RegisterApiController extends Controller
             'lname' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
              'password' => 'required|string|min:6|confirmed',
-             'phone' => 'required|min:10|max:10|unique:users',
-             'zone' => 'required|string|max:255',
-             'country' => 'required',
-             'city' => 'required',
-             'pincode' => 'required',
+           
              
 
  
@@ -36,14 +32,7 @@ class RegisterApiController extends Controller
             $user->email=$request->input('email');
             $user->password=bcrypt($request->input('password'));
             $user->phone=$request->input('phone');
-            $user->zone=$request->input('zone');
-            $user->country=$request->input('country');
-            $user->city=$request->input('city');
-            $user->pincode=$request->input('pincode');
-            $user->avatar=$request->input('avatar');
-            $user->dob=$request->input('dob');
-            $user->gender=$request->input('gender');
-
+         
             $user->status=1;
             $user->deleted_on_off=1;
             $user->role_id= 1;

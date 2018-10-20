@@ -1,80 +1,85 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html class="loading" lang="en" data-textdirection="ltr">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Turf</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <title>Turf</title>
+  <link rel="shortcut icon" type="image/x-icon" href="">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,400,500,700"
+  rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/vendors.css')}}">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN ROBUST CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
+  <!-- END ROBUST CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/core/menu/menu-types/vertical-menu.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/core/colors/palette-gradient.css')}}">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('csnew/css/style.css')}}">
+  <!-- END Custom CSS-->
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar"
+data-open="click" data-menu="vertical-menu" data-col="2-columns">
+  <!-- fixed-top-->
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="">
+              <h3 class="brand-text">Turf</h3>
+            </a>
+          </li>
+         
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+  <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
+    <div class="main-menu-content">
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+      
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+  
+        <li class="active"><a href="add-on-block-ui.html"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Block UI</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="icon-crop"></i><span class="menu-title" data-i18n="nav.add_on_image_cropper.main">Image Cropper</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+        </li>
+        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
+        </li>
+  
+      </ul>
+    </div>
+  </div>
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+   
+@include('layouts.errors')
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
+       @yield('content')
+        
+      
+      </div>
+     
+      </div>
+ 
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+    @include('layouts.footer')

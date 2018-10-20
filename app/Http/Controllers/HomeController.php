@@ -9,6 +9,10 @@ use App\Profile;
 
 use Carbon\Carbon;
 
+
+use Illuminate\Support\Facades\Input;
+
+
 use App\Scoresheet;
 
 use App\Tournament;
@@ -178,19 +182,45 @@ return response()->json([
 
 
 
+}
+
+
+public function showusers(){
+
+    $user = User::all();
+
+$users = array();
+
+
+foreach($user as $us){
+    $users[] = [
+        'id' => $us->id,
+        'name' => $us->fname . $us->lname,
+        'avatar' => $us->avatar
+
+    ];
+}
+
+    return response()->json(
+        $users
+        
+    );
 
 
 
+}
 
+public function checknum(){
+    
+    if(User::where('phone', '=', Input::get('phone'))->count() > 0) {
 
+         return response()->json([
 
+             'result' => 'Mobile number already exists'
+         
+             ]);
 
-
-
-
-
-
-
+    }
 
 
 
@@ -198,5 +228,4 @@ return response()->json([
 
 
 }
-
 
