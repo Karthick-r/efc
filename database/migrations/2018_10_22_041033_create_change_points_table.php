@@ -15,7 +15,7 @@ class CreateChangePointsTable extends Migration
     {
         Schema::create('change_points', function (Blueprint $table) {
             $table->increments('id');
-            $table->number('points');
+            $table->integer('points');
 
             $table->timestamps();
         });

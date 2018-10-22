@@ -72,6 +72,12 @@ public function login(Request $request)
     ]);
  
     if (Auth::attempt($request->only($login_type, 'password'))) {
+        if(Auth::user()->role_id !== 1){
+            return response()->json(['error'=>'you are blocked by admin'], 200);
+            Auth::user()->AauthAcessToken()->delete();
+
+
+        }else{
              $user = Auth::user();
              $success['id'] = $user->id;
              $success['name'] = $user->fname;
@@ -79,6 +85,7 @@ public function login(Request $request)
         $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => $success], 200);
     }
+}
     else{
         return response()->json(['error'=>'Your input pairs do not match our records'], 200);
     }
@@ -98,3 +105,4 @@ public function logout()
 }
 
 }
+

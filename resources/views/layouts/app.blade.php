@@ -51,7 +51,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       
 
   
-        <li class="active"><a href="{{ url('/seeusers') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
+        <li class="active"><a href="{{ url('/admin/seeusers') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
         </li>
 
         <li class="active"><a href="{{ route('showpoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase points</span></a>
@@ -75,19 +75,16 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       </ul>
     </div>
   </div>
-  <div class="app-content content">
-    <div class="content-wrapper">
-      <div class="content-header row">
-   
-@include('layouts.errors')
+   <div class="row">
+    <div class="col-lg-4 col-xl-4 col-xs-4 xol-md-4">
 
-       @yield('content')
-        
-      
-      </div>
-     
-      </div>
- 
     </div>
+
+    <div class="col-lg-5 col-xl-5 col-xs-5 xol-md-5 mt-5">
+        @include('layouts.errors')
+        @yield('content')
+      </div>  
+
+  </div>
 
     @include('layouts.footer')

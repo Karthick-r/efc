@@ -1,6 +1,4 @@
-<footer class="footer footer-static footer-light navbar-border">
 
-  </footer>
   <!-- BEGIN VENDOR JS-->
   <script src="{{ asset('vendors/js/vendors.min.js') }}" type="text/javascript"></script>
   <!-- BEGIN VENDOR JS-->

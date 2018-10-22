@@ -21,9 +21,7 @@
               </div>
               <div class="card-content collapse show">
                 <div class="card-body card-dashboard">
-                  <p class="card-text">Lets say you want to sort the fourth column (3) descending and
-                    the first column (0) ascending: your order: would look like
-                    this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</p>
+                  <p class="card-text">List of users</p>
                   <table class="table table-striped table-bordered default-ordering">
                     <thead>
                       <tr>
