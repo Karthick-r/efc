@@ -400,6 +400,7 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
 
     public static $classMap = array (
         'App\\Bowler' => __DIR__ . '/../..' . '/app/Bowler.php',
+        'App\\ChangePoints' => __DIR__ . '/../..' . '/app/ChangePoints.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\ApiRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiRequestController.php',
@@ -412,14 +413,13 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MatchInController' => __DIR__ . '/../..' . '/app/Http/Controllers/MatchInController.php',
         'App\\Http\\Controllers\\OrganizeController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrganizeController.php',
-        'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrashController.php',
         'App\\Http\\Controllers\\RegisterApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterApiController.php',
         'App\\Http\\Controllers\\ScoreController' => __DIR__ . '/../..' . '/app/Http/Controllers/ScoreController.php',
         'App\\Http\\Controllers\\ScoresheetController' => __DIR__ . '/../..' . '/app/Http/Controllers/ScoresheetController.php',
         'App\\Http\\Controllers\\TeamController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeamController.php',
         'App\\Http\\Controllers\\TournamentController' => __DIR__ . '/../..' . '/app/Http/Controllers/TournamentController.php',
         'App\\Http\\Controllers\\TournamentInController' => __DIR__ . '/../..' . '/app/Http/Controllers/TournamentInController.php',
-        'App\\Http\\Controllers\\TrashController' => __DIR__ . '/../..' . '/app/Http/Controllers/TrashController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminCheck' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminCheck.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

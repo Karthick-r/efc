@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Bowler' => $baseDir . '/app/Bowler.php',
+    'App\\ChangePoints' => $baseDir . '/app/ChangePoints.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\ApiRequestController' => $baseDir . '/app/Http/Controllers/ApiRequestController.php',
@@ -19,14 +20,13 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\MatchInController' => $baseDir . '/app/Http/Controllers/MatchInController.php',
     'App\\Http\\Controllers\\OrganizeController' => $baseDir . '/app/Http/Controllers/OrganizeController.php',
-    'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
+    'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/TrashController.php',
     'App\\Http\\Controllers\\RegisterApiController' => $baseDir . '/app/Http/Controllers/RegisterApiController.php',
     'App\\Http\\Controllers\\ScoreController' => $baseDir . '/app/Http/Controllers/ScoreController.php',
     'App\\Http\\Controllers\\ScoresheetController' => $baseDir . '/app/Http/Controllers/ScoresheetController.php',
     'App\\Http\\Controllers\\TeamController' => $baseDir . '/app/Http/Controllers/TeamController.php',
     'App\\Http\\Controllers\\TournamentController' => $baseDir . '/app/Http/Controllers/TournamentController.php',
     'App\\Http\\Controllers\\TournamentInController' => $baseDir . '/app/Http/Controllers/TournamentInController.php',
-    'App\\Http\\Controllers\\TrashController' => $baseDir . '/app/Http/Controllers/TrashController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminCheck' => $baseDir . '/app/Http/Middleware/AdminCheck.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

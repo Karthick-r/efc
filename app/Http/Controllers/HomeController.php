@@ -10,6 +10,8 @@ use App\Profile;
 use Carbon\Carbon;
 
 
+use App\ChangePoints;
+
 use Illuminate\Support\Facades\Input;
 
 
@@ -246,6 +248,21 @@ $user->save();
 
 return redirect()->back();
 }
+
+
+public function changenumber(Request $request){
+
+$change = ChangePoints::find(1);
+
+$change->points = $request->points;
+$change->save();
+
+
+return redirect()->back();
+}
+
+
+
 
 }
 

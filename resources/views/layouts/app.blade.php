@@ -51,10 +51,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       
 
   
-        <li class="active"><a href="add-on-block-ui.html"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Block UI</span></a>
+        <li class="active"><a href="{{ url('/seeusers') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
         </li>
 
-
+        <li class="active"><a href="{{ route('homepoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase points</span></a>
+        </li>
         <li class=" nav-item" id="">
           
           
