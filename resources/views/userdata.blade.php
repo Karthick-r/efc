@@ -8,7 +8,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Default ordering</h4>
+                <h4 class="card-title">Users Data</h4>
                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                   <ul class="list-inline mb-0">
@@ -28,6 +28,8 @@
                         <th>Name</th>
                         <th>Batsman</th>
                         <th>Bowler</th>
+                        <th>See Profile</th>
+
                         <th>block</th>
                        
                       </tr>
@@ -39,6 +41,8 @@
                         <td>{{ $users->fname}}</td>
                         <td>{{ $users->profile->batsman }}</td>
                         <td>{{ $users->profile->bowler }}</td>
+                        <td><a href="{{ route('viw', ['id' => $users->id]) }}" class="btn btn-danger"> view</a> </td>
+
                         @if($users->role_id == 1)
                         <td>  <a href="{{ route('block', ['id' => $users->id]) }}" class="btn btn-danger"> Block</a> </td>
                         @else

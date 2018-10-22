@@ -53,6 +53,38 @@ Route::post('/points/1', [
 
 ]);
 
+Route::get('/showteams', [
+
+    'uses' => 'HomeController@showmat',
+    'as' => 'showtm'
+
+]);
+Route::get('/showtournaments', [
+
+    'uses' => 'HomeController@showtournaments',
+    'as' => 'showtr'
+
+]);
+
+Route::get('/viewprof/{id}', [
+
+    'uses' => 'HomeController@vwpro',
+    'as' => 'viw'
+
+]);
+
+Route::get('/showmatches', [
+
+    'uses' => 'HomeController@showresults',
+    'as' => 'showmt'
+
+]);
+Route::get('/upcoming', [
+
+    'uses' => 'HomeController@upcoming',
+    'as' => 'upcmng'
+
+]);
 
 });
 

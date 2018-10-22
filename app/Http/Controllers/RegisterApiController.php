@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Validator;
+use App\Profile;
 
 use App\Players;
 
@@ -18,6 +19,7 @@ class RegisterApiController extends Controller
             'lname' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
              'password' => 'required|string|min:6|confirmed',
+             'phone' => 'required|integer|unique:users'
            
              
 
@@ -40,10 +42,21 @@ class RegisterApiController extends Controller
             $player = new Players;
 
 
+
+
+            $player->id =  $request->id;
+
             $player->players =  $request->fname;
 
             $player->save();
+           
             $user->save();
+
+            $profile = new Profile;
+            $profile->user_id = $user->id;
+
+            $profile->save();
+            
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->fname;
             $success['id'] = $user->id;

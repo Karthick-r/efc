@@ -9,6 +9,7 @@ use App\Profile;
 
 use Carbon\Carbon;
 
+use Session;
 
 use App\ChangePoints;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Input;
 
 
 use App\Scoresheet;
+use App\Players;
 
 use App\Tournament;
 use Response;
@@ -39,7 +41,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $val = Organize::all()->count();
+        $play = Players::all()->count();
+        $tour = Tournament::all()->count();
+        $team = Team::all()->count();
+
+        
+        return view('home')->with('val', $val)->with('play', $play)->with('tour', $tour)->with('team', $team);
     }
 
 
@@ -245,6 +253,7 @@ $user->role_id = 4;
 
 $user->save();
 
+Session::flash('success', 'User blocked');
 
 return redirect()->back();
 }
@@ -262,16 +271,55 @@ public function changenumber(Request $request){
 $change = ChangePoints::find(1);
 
 $change->points = $request->points;
+$change->rewards = $request->rewards;
+
 $change->save();
 
+Session::flash('success', 'Reward points changed');
 
 return redirect()->back();
 }
 
 
 
+public function showmat(){
+    $team = Team::all();
+
+    return view('showmat')->with('team', $team);
+}
+
+public function showtournaments(){
+    $tour = Tournament::all();
+
+    return view('showtr')->with('tour', $tour);
+}
+public function showresults(){
+    $org = Organize::all();
+
+    return view('showorg')->with('org', $org);
+}
 
 
+public function vwpro($id){
+
+    $prof = Profile::where('user_id' ,$id)->first();
+
+    return view('vwprof')->with('prof', $prof);
+
+
+
+}
+
+
+public function upcoming(){
+    $data = Carbon::now();
+    $upcmng = Organize::where('matchdate', '>', $data)->get();
+
+    return view('upcmng')->with('upcmng', $upcmng);
+
+
+
+}
 
 }
 

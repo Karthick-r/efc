@@ -32,6 +32,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
     <div class="navbar-wrapper">
       <div class="navbar-header">
+        
         <ul class="nav navbar-nav flex-row">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
@@ -45,6 +46,9 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
      
     </div>
   </nav>
+
+
+
   <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
     <div class="main-menu-content">
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
@@ -54,22 +58,29 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         <li class="active"><a href="{{ url('/admin/seeusers') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
         </li>
 
-        <li class="active"><a href="{{ route('showpoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase points</span></a>
-        </li>
-        <li class=" nav-item" id="">
-          
-          
-        <a href="{{ url('/admin/logout') }}"
-        onclick="event.preventDefault();
-                 document.getElementById('logout-form').submit();">
-        Logout
-    </a>
 
-    <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
-        {{ csrf_field() }}
-    </form>
-          
+        <li><a href="{{ route('showmt') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Matches</span></a>
         </li>
+
+        <li><a href="{{ route('showtr') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Tournaments</span></a>
+        </li>
+
+
+        <li><a href="{{ route('showtm') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Teams</span></a>
+        </li>
+        <li><a href="{{ route('upcmng') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Upcoming Matches</span></a>
+        </li>
+        <li><a href="{{ route('showpoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase Reward points</span></a>
+        </li>
+
+        <li><a href="{{ url('/admin/logout') }}" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Logout</span></a>
+       
+          <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+        </li>
+
       
   
       </ul>
@@ -81,6 +92,15 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     </div>
 
     <div class="col-lg-5 col-xl-5 col-xs-5 xol-md-5 mt-5">
+
+        <div class="container">
+            @if(Session::has('success'))
+                  <div class="alert alert-success">
+          
+                    {{ Session::get('success') }}
+                  </div>
+                  @endif
+          </div>
         @include('layouts.errors')
         @yield('content')
       </div>  
