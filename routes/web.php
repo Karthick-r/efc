@@ -40,6 +40,12 @@ Route::get('/block/{id}', [
     'as' => 'block'
 
 ]);
+Route::get('/showpoints/1', [
+
+    'uses' => 'HomeController@showpoints',
+    'as' => 'showpoints'
+
+]);
 Route::post('/points/1', [
 
     'uses' => 'HomeController@changenumber',

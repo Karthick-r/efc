@@ -248,7 +248,14 @@ $user->save();
 
 return redirect()->back();
 }
+public function showpoints(){
+    $change = ChangePoints::find(1);
+    
 
+    return view('pointsshow')->with('change', $change);
+    
+  
+    }
 
 public function changenumber(Request $request){
 
@@ -260,6 +267,8 @@ $change->save();
 
 return redirect()->back();
 }
+
+
 
 
 
