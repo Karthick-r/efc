@@ -53,18 +53,23 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   
         <li class="active"><a href="add-on-block-ui.html"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Block UI</span></a>
         </li>
-        <li class=" nav-item"><a href="add-on-image-cropper.html"><i class="icon-crop"></i><span class="menu-title" data-i18n="nav.add_on_image_cropper.main">Image Cropper</span></a>
+
+
+        <li class=" nav-item" id="">
+          
+          
+        <a href="{{ url('/admin/logout') }}"
+        onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();">
+        Logout
+    </a>
+
+    <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+          
         </li>
-        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
-        </li>
-        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
-        </li>
-        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
-        </li>
-        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
-        </li>
-        <li class=" nav-item"><a href="add-on-drag-drop.html"><i class="icon-cursor-move"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">Drag &amp; Drop</span></a>
-        </li>
+      
   
       </ul>
     </div>

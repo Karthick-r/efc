@@ -227,7 +227,7 @@ public function checknum(){
 }
 
 public function allusers(){
-    $user = User::all();
+    $user = User::where('role_id', '=', 1)->get();
 
 
     return view('userdata')->with('user', $user);

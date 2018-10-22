@@ -40,6 +40,9 @@ Route::get('/block/{id}', [
     'as' => 'block'
 
 ]);
+
+
+
 });
 
 
