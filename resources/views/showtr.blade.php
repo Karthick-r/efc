@@ -2,11 +2,9 @@
 
 
 
-@section('content')
+@section('content')<div class="card">
 
-
-    
-                  <table class="table table-striped table-bordered zero-configuration">
+                  <table class="table table-striped table-bordered default-ordering">
                     <thead>
                         <tr>
                           <th>Tournament Organizer</th>
@@ -34,6 +32,6 @@
     
                       </tbody>
                   </table>
-   
+    
 
 @endsection

@@ -3,7 +3,8 @@
 
 @section('content')
 
-                  <table class="table table-striped table-bordered default-ordering">
+
+    <table class="table table-striped table-bordered default-ordering">
                     <thead>
                       <tr>
                         <th>Team name</th>
@@ -28,6 +29,6 @@
                     </tbody>
                    
                   </table>
-               
+
 
       @stop

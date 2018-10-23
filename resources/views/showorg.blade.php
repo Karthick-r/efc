@@ -5,10 +5,7 @@
 @section('content')
 
 
-
-
-    
-                  <table class="table table-striped table-bordered zero-configuration">
+                  <table class="table table-striped table-bordered default-ordering">
                     <thead>
                         <tr>
                           <th>Match Organizer</th>
@@ -43,6 +40,7 @@
     
                       </tbody>
                   </table>
+       
      
 
 @endsection

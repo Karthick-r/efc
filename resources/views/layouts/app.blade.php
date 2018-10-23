@@ -7,9 +7,13 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Turf</title>
+
+
   <link rel="shortcut icon" type="image/x-icon" href="">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,400,500,700"
   rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
   <!-- BEGIN VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/vendors.css')}}">
   <!-- END VENDOR CSS-->
@@ -37,13 +41,35 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="">
-              <h3 class="brand-text">Turf</h3>
+                <img class="brand-logo" alt="robust admin logo" style="width:3vw" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=472642856008b6ddb3e596e45ca4263d&auto=format&fit=crop&w=1347&q=80">
+
+              <h3 class="brand-text mb-2">Turf</h3>
+
+
+
             </a>
           </li>
          
         </ul>
       </div>
+      <div class="container mt-1">
+       
+        
+        <a href="{{ url('/admin/logout') }}" class=" btn btn-primary" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();" style="float:right"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Logout</span></a>
      
+      <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+
+
+    </form>
+    <h1 class="" >
+        <i class="fas fa-volleyball-ball"></i>
+      Turf
+      </h1>
+  </div>
+
+   
     </div>
   </nav>
 
@@ -71,15 +97,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
         <li><a href="{{ route('upcmng') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Upcoming Matches</span></a>
         </li>
         <li><a href="{{ route('showpoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase Reward points</span></a>
-        </li>
-
-        <li><a href="{{ url('/admin/logout') }}" onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Logout</span></a>
-       
-          <form id="logout-form" action="{{ url('/admin/logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-        </li>
+ 
 
       
   
@@ -87,11 +105,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     </div>
   </div>
    <div class="row">
-    <div class="col-lg-4 col-xl-4 col-xs-4 xol-md-4">
+    <div class="col-lg-3 col-xl-3 col-xs-3 col-md-3">
 
     </div>
 
-    <div class="col-lg-5 col-xl-5 col-xs-5 xol-md-5 mt-5">
+    <div class="col-lg-7 col-xl-7 col-xs-7 col-md-7 mt-2">
 
         <div class="container">
             @if(Session::has('success'))
@@ -101,10 +119,11 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                   </div>
                   @endif
           </div>
-        @include('layouts.errors')
+<div class="card">   
+  <div class="card-body">     
         @yield('content')
-      </div>  
-
+  </div>
+</div>
   </div>
 
     @include('layouts.footer')
