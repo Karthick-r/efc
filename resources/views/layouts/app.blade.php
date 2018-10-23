@@ -105,11 +105,9 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
     </div>
   </div>
    <div class="row">
-    <div class="col-lg-3 col-xl-3 col-xs-3 col-md-3">
+  
 
-    </div>
-
-    <div class="col-lg-7 col-xl-7 col-xs-7 col-md-7 mt-2">
+    <div class="col-lg-10 col-xl-8 col-xs-10 col-md-10 offset-md-2 offset-lg-2 offset-xl-2 mt-2">
 
         <div class="container">
             @if(Session::has('success'))
