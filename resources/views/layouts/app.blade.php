@@ -41,7 +41,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a class="navbar-brand" href="">
-                <img class="brand-logo" alt="robust admin logo" style="width:3vw" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=472642856008b6ddb3e596e45ca4263d&auto=format&fit=crop&w=1347&q=80">
+                <img class="brand-logo" alt="robust admin logo" style="width:4vw; height:4.5vh; border-radius:40px;" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=472642856008b6ddb3e596e45ca4263d&auto=format&fit=crop&w=1347&q=80">
 
               <h3 class="brand-text mb-2">Turf</h3>
 
@@ -81,22 +81,22 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       
 
   
-        <li class="active"><a href="{{ url('/admin/seeusers') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
+        <li class="active"><a href="{{ url('/admin/seeusers') }}"><i class="fas fa-user"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">See Users</span></a>
         </li>
 
 
-        <li><a href="{{ route('showmt') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Matches</span></a>
+        <li><a href="{{ route('showmt') }}"><i class="fas fa-layer-group"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Matches</span></a>
         </li>
 
-        <li><a href="{{ route('showtr') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Tournaments</span></a>
+        <li><a href="{{ route('showtr') }}"><i class="fas fa-network-wired"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Tournaments</span></a>
         </li>
 
 
-        <li><a href="{{ route('showtm') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Teams</span></a>
+        <li><a href="{{ route('showtm') }}"><i class="fas fa-user-friends"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Teams</span></a>
         </li>
-        <li><a href="{{ route('upcmng') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Upcoming Matches</span></a>
+        <li><a href="{{ route('upcmng') }}"><i class="fas fa-table"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Upcoming Matches</span></a>
         </li>
-        <li><a href="{{ route('showpoints') }}"><i class="icon-shield"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase Reward points</span></a>
+        <li><a href="{{ route('showpoints') }}"><i class="fas fa-plus"></i><span class="menu-title" data-i18n="nav.add_on_block_ui.main">Increase Reward points</span></a>
  
 
       
@@ -104,24 +104,48 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
       </ul>
     </div>
   </div>
-   <div class="row">
-  
 
-    <div class="col-lg-10 col-xl-8 col-xs-10 col-md-10 offset-md-2 offset-lg-2 offset-xl-2 mt-2">
 
-        <div class="container">
-            @if(Session::has('success'))
-                  <div class="alert alert-success">
-          
-                    {{ Session::get('success') }}
-                  </div>
-                  @endif
+
+
+
+
+{{--  --}}
+
+
+<div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+          <div class="row breadcrumbs-top d-inline-block">
+        
           </div>
-<div class="card">   
-  <div class="card-body">     
-        @yield('content')
-  </div>
-</div>
-  </div>
+        </div>
+      
+        </div>
+      </div>
+      <div class="content-body">
+        <section id="configuration">
+          <div class="row">
+            <div class="col-12">
+              <div class="container-fluid">
+              <div class="card">
+               
+                <div class="card-content collapse show">
+                  <div class="card-body card-dashboard">
+                   
+                      @yield('content')
+
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+
+
+
 
     @include('layouts.footer')

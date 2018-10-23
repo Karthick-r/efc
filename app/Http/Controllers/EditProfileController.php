@@ -104,7 +104,7 @@ $matchins->save();
  
 
   $success = Auth::user()->fname . " profile created Successfully";
-    return response()->json(['Sucess' => $success], 200);
+    return response()->json(['Success' => $success], 200);
 
     }
 
