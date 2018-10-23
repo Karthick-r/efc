@@ -16,12 +16,19 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('batsman');
-            $table->string('bowler');
-            $table->string('about');
-            $table->boolean('wicketkeeper');
-            $table->boolean('allrounder');
+            $table->string('batsman')->nullable();
+            $table->string('bowler')->nullable();
+            $table->string('about')->nullable();
+            $table->boolean('wicketkeeper')->nullable();
+            $table->boolean('allrounder')->nullable();
             $table->integer('points')->nullable();
+            $table->string('zone')->nullable();
+            $table->integer('pincode')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('gender')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

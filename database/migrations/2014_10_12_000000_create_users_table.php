@@ -19,14 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('lname');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('phone')->unique();
-            $table->string('zone')->nullable();
-            $table->integer('pincode')->nullable();
-            $table->string('city')->nullable();
-            $table->string('country')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('dob')->nullable();
-            $table->string('gender')->nullable();
+            $table->string('phone')->unique();
+           
             $table->integer('status');
             $table->boolean('deleted_on_off');
             $table->boolean('admin');

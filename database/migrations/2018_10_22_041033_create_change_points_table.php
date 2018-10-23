@@ -17,7 +17,6 @@ class CreateChangePointsTable extends Migration
             $table->increments('id');
             $table->integer('points');
             $table->integer('rewards');
-
             $table->timestamps();
         });
     }
