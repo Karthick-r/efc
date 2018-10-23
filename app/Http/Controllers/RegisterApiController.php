@@ -39,23 +39,23 @@ class RegisterApiController extends Controller
             $user->deleted_on_off=1;
             $user->role_id= 1;
             $user->admin=0;
+
+
+           
+           
+            $user->save();
+
             $player = new Players;
 
 
 
+            $player->id =  $user->id;
 
-            $player->id =  $request->id;
 
             $player->players =  $request->fname;
-
             $player->save();
+
            
-            $user->save();
-
-            $profile = new Profile;
-            $profile->user_id = $user->id;
-
-            $profile->save();
             
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['name'] = $user->fname;
@@ -118,4 +118,5 @@ public function logout()
 }
 
 }
+
 

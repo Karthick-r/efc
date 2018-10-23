@@ -12,7 +12,7 @@ use App\TournamentIn;
 use App\MatchIn;
 use Auth;
 use App\Score;
-class ProfileController extends Controller
+class EditProfileController extends Controller
 {
 
     public function __construct(){
@@ -220,10 +220,9 @@ foreach( $ts as $mss){
                 "total_rewards" =>Auth::user()->points,
                 "total_matches"=> $get->noofinnings,
                 "total_wickets"=> $get->totalwc,
-
                     "total_runs"=> $get->totalsc,
 
-                "img_url" => $avatar,
+                "img_url" => $avatars,
                 "info" => [
                   "dob" => $dobs,
                  "place" => $citys,
@@ -307,37 +306,7 @@ foreach( $ts as $mss){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
 
-    
-
-
-        $this->validate($request, [
-            'batsman' => 'required',
-            'bowler' => 'required',
-            'about' => 'required',
-            'wicketkeeper' => 'required',
-            'allrounder' => 'required',
-     ]);
-   
-
-
-     $profile =  Profile::find($id)->where('user_id', '=', Auth::user()->id)->get();
-
-     $profile->batsman = $request->input('batsman');
-     $profile->bowler = $request->input('bowler');
-     $profile->about = $request->input('about');
-
-     $profile->wicketkeeper = $request->input('wicketkeeper');
-     $profile->allrounder = $request->input('allrounder');
-     $profile->user_id = Auth::user()->id;
-     $profile->save();
-     $success = Auth::user()->fname . "Your profile edited Successfully";
-      return response()->json(['Success' => $success], 200);
-
-   
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -355,4 +324,35 @@ foreach( $ts as $mss){
 
         
     }
+
+    public function update(Request $request, $user_id)
+    {
+
+    
+        $this->validate($request, [
+            'batsman' => 'required',
+            'bowler' => 'required',
+            'about' => 'required',
+            'wicketkeeper' => 'required',
+            'allrounder' => 'required',
+     ]);
+   
+
+
+     $profile =  Profile::where('user_id', $user_id)->first();
+
+     $profile->batsman = $request->input('batsman');
+     $profile->bowler = $request->input('bowler');
+     $profile->about = $request->input('about');
+
+     $profile->wicketkeeper = $request->input('wicketkeeper');
+     $profile->allrounder = $request->input('allrounder');
+     $profile->user_id = Auth::user()->id;
+     $profile->save();
+     $success = Auth::user()->fname . "Your profile edited Successfully";
+      return response()->json(['Success' => $success], 200);
+
+   
+    }
 }
+

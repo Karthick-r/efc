@@ -226,7 +226,7 @@ public function checknum(){
 
          return response()->json([
 
-             'result' => 'Mobile number already exists'
+             'Result' => 'Mobile number already exists'
          
              ]);
 

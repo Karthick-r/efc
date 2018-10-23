@@ -39,11 +39,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        if (Team::where('user_id', Auth::user()->id)->exists()) {
-            return response()->json(['Rejected' => Auth::user()->fname." you already have a Team"], 200);
-    
-        }
-        else{
+   
 
 
             $team = Team::create([
@@ -68,7 +64,7 @@ class TeamController extends Controller
         return response()->json([
             'Success' => 'Your Team Created'
         ], 200);
-    }
+   
     }
 
     /**

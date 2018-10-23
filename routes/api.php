@@ -31,19 +31,19 @@ Route::post('/register', [
             ]);
         
         Route::post('/profile', [
-            'uses' => 'ProfileController@create',
+            'uses' => 'EditProfileController@create',
             'as' => 'profile.api'
             ]);
             
             
             Route::get('/profile/{user_id}', [
-                'uses' => 'ProfileController@show',
+                'uses' => 'EditProfileController@show',
                 'as' => 'showe.api'
                 ]);
              
              
-                Route::post('/profile/{id}', [
-                    'uses' => 'ProfileController@update',
+                Route::post('/profile/{user_id}', [
+                    'uses' => 'EditProfileController@update',
                     'as' => 'updatepro.api'
                     ]);
 
@@ -244,5 +244,6 @@ Route::post('/register', [
                                                 
 
                                               
+
 
 
