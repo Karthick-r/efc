@@ -8,6 +8,9 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
@@ -21,9 +24,6 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         '0b0974a5566a1077e4f2e111341112c1' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_server.php',
         '1ca3bc274755662169f9629d5412a1da' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/normalize_uploaded_files.php',
         '40360c0b9b437e69bcbb7f1349ce029e' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/parse_cookie_header.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
@@ -73,6 +73,13 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
+            'SocialNorm\\SoundCloud\\' => 22,
+            'SocialNorm\\LinkedIn\\' => 20,
+            'SocialNorm\\Instagram\\' => 21,
+            'SocialNorm\\Google\\' => 18,
+            'SocialNorm\\GitHub\\' => 18,
+            'SocialNorm\\Facebook\\' => 20,
+            'SocialNorm\\' => 11,
         ),
         'R' => 
         array (
@@ -135,6 +142,8 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'A' => 
         array (
             'App\\' => 4,
+            'AdamWathan\\EloquentOAuth\\' => 25,
+            'AdamWathan\\EloquentOAuthL5\\' => 27,
         ),
     );
 
@@ -236,6 +245,34 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'Symfony\\Bridge\\PsrHttpMessage\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
+        'SocialNorm\\SoundCloud\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/soundcloud/src',
+        ),
+        'SocialNorm\\LinkedIn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/linkedin/src',
+        ),
+        'SocialNorm\\Instagram\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/instagram/src',
+        ),
+        'SocialNorm\\Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/google/src',
+        ),
+        'SocialNorm\\GitHub\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/github/src',
+        ),
+        'SocialNorm\\Facebook\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/facebook/src',
+        ),
+        'SocialNorm\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/socialnorm/socialnorm/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -353,6 +390,14 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'AdamWathan\\EloquentOAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src',
+        ),
+        'AdamWathan\\EloquentOAuthL5\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adamwathan/eloquent-oauth-l5/src',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -399,6 +444,17 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
     );
 
     public static $classMap = array (
+        'AdamWathan\\EloquentOAuthL5\\EloquentOAuthServiceProvider' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth-l5/src/EloquentOAuthServiceProvider.php',
+        'AdamWathan\\EloquentOAuthL5\\Installation\\FileExistsException' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth-l5/src/Installation/FileExistsException.php',
+        'AdamWathan\\EloquentOAuthL5\\Installation\\InstallCommand' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth-l5/src/Installation/InstallCommand.php',
+        'AdamWathan\\EloquentOAuth\\Authenticator' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/Authenticator.php',
+        'AdamWathan\\EloquentOAuth\\EloquentIdentityStore' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/EloquentIdentityStore.php',
+        'AdamWathan\\EloquentOAuth\\Facades\\OAuth' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/Facades/OAuth.php',
+        'AdamWathan\\EloquentOAuth\\IdentityStore' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/IdentityStore.php',
+        'AdamWathan\\EloquentOAuth\\OAuthIdentity' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/OAuthIdentity.php',
+        'AdamWathan\\EloquentOAuth\\OAuthManager' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/OAuthManager.php',
+        'AdamWathan\\EloquentOAuth\\Session' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/Session.php',
+        'AdamWathan\\EloquentOAuth\\UserStore' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/src/UserStore.php',
         'App\\Bowler' => __DIR__ . '/../..' . '/app/Bowler.php',
         'App\\ChangePoints' => __DIR__ . '/../..' . '/app/ChangePoints.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -410,6 +466,7 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\BowlerController' => __DIR__ . '/../..' . '/app/Http/Controllers/BowlerController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\EditProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/EditProfileController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MatchInController' => __DIR__ . '/../..' . '/app/Http/Controllers/MatchInController.php',
         'App\\Http\\Controllers\\OrganizeController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrganizeController.php',
@@ -1031,6 +1088,7 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
         'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
         'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
+        'FunctionalTestCase' => __DIR__ . '/..' . '/adamwathan/eloquent-oauth/tests/FunctionalTestCase.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
         'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
         'GuzzleHttp\\Cookie\\CookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
@@ -3344,6 +3402,23 @@ class ComposerStaticInitccd816e65861e2fa07bcfb06676e6b3c
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'SocialNorm\\Exceptions\\ApplicationRejectedException' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Exceptions/ApplicationRejectedException.php',
+        'SocialNorm\\Exceptions\\InvalidAuthorizationCodeException' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Exceptions/InvalidAuthorizationCodeException.php',
+        'SocialNorm\\Exceptions\\ProviderNotRegisteredException' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Exceptions/ProviderNotRegisteredException.php',
+        'SocialNorm\\Facebook\\FacebookProvider' => __DIR__ . '/..' . '/socialnorm/facebook/src/FacebookProvider.php',
+        'SocialNorm\\GitHub\\GitHubProvider' => __DIR__ . '/..' . '/socialnorm/github/src/GitHubProvider.php',
+        'SocialNorm\\Google\\GoogleProvider' => __DIR__ . '/..' . '/socialnorm/google/src/GoogleProvider.php',
+        'SocialNorm\\Instagram\\InstagramProvider' => __DIR__ . '/..' . '/socialnorm/instagram/src/InstagramProvider.php',
+        'SocialNorm\\LinkedIn\\LinkedInProvider' => __DIR__ . '/..' . '/socialnorm/linkedin/src/LinkedInProvider.php',
+        'SocialNorm\\Provider' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Provider.php',
+        'SocialNorm\\ProviderRegistry' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/ProviderRegistry.php',
+        'SocialNorm\\Providers\\OAuth2Provider' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Providers/OAuth2Provider.php',
+        'SocialNorm\\Request' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Request.php',
+        'SocialNorm\\Session' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/Session.php',
+        'SocialNorm\\SocialNorm' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/SocialNorm.php',
+        'SocialNorm\\SoundCloud\\SoundCloudProvider' => __DIR__ . '/..' . '/socialnorm/soundcloud/src/SoundCloudProvider.php',
+        'SocialNorm\\StateGenerator' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/StateGenerator.php',
+        'SocialNorm\\User' => __DIR__ . '/..' . '/socialnorm/socialnorm/src/User.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\DiactorosFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/DiactorosFactory.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\HttpFoundationFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/HttpFoundationFactory.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Factory\\PsrHttpFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/PsrHttpFactory.php',

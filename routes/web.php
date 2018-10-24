@@ -18,8 +18,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/{provider}/auth', [
 
+    'uses' => 'SocialsController@auth'
 
+]);
+Route::get('/{provider}/redirect', [
+
+    'uses' => 'SocialsController@callback'
+
+]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admincheck'], function(){
 
